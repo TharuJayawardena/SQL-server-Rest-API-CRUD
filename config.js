@@ -4,7 +4,7 @@ const assert = require('assert');
 
 dotenv.config();
 
-const {PORT, HOST, HOST_URL, SQL_USER, SQL_PASSWORD, SQL_DATABASE, SQL_SERVER} = process.env
+const { PORT, HOST, HOST_URL, SQL_USER, SQL_PASSWORD, SQL_DATABASE, SQL_SERVER, SQL_ENCRYPT } = process.env
 
 const sqlEncrypt = process.env.ENCRYPT === "true";
 
@@ -21,8 +21,10 @@ module.exports = {
         user: SQL_USER,
         password: SQL_PASSWORD,
         options: {
-            encrypt: sqlEncrypt,
+            encrypt: false,
             enableArithAbort: true
+            // instanceName: 'SQLEXPRESS',
+           
         }
     }
 }
